@@ -15,21 +15,19 @@
 # include <process.h>
 #endif
 
-#include "asg.h"
 #include "syscalls.h"
 
 void seed_rng(uint32_t seed)
 {
-    uint32_t sarg[1] = { seed };
-    seed_asg(sarg, 1);
+    mt_rng[0].init(seed);
+    mt_rng[1].init(mt_rng[0].rand32());
 }
 
 void seed_rng()
 {
-    /* Use a 160-bit wide seed */
-    uint32_t seed_key[5];
-    read_urandom((char*)(&seed_key), sizeof(seed_key));
-
+    // use a 624-word seed
+    uint32_t seed_key[624];
+    read_urandom((char*)(&seed_key), 624 * 4);
 #ifdef UNIX
     struct tms buf;
     seed_key[0] += times(&buf);
@@ -37,8 +35,18 @@ void seed_rng()
     seed_key[1] += getpid();
     seed_key[2] += time(nullptr);
 
-    seed_asg(seed_key, 5);
+    mt_rng[0].init_array(seed_key, 624);
+    mt_rng[1].init(mt_rng[0].rand32());
 }
+
+uint32_t get_uint32() {
+    return get_uint32(0);
+}
+
+uint32_t get_uint32(int rng) {
+    return mt_rng[rng].rand32();
+}
+
 
 uint32_t random_int()
 {

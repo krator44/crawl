@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1F909AE1148B23BC00084E83 /* acquire.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1F909ABD148B23BC00084E83 /* acquire.cc */; };
 		1F909AE2148B23BC00084E83 /* art-data.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1F909AC1148B23BC00084E83 /* art-data.txt */; };
-		1F909AE3148B23BC00084E83 /* asg.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1F909AC3148B23BC00084E83 /* asg.cc */; };
 		1F909AE4148B23BC00084E83 /* attack.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1F909AC5148B23BC00084E83 /* attack.cc */; };
 		1F909AE5148B23BC00084E83 /* cellular.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1F909ACA148B23BC00084E83 /* cellular.cc */; };
 		1F909AE6148B23BC00084E83 /* dactions.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1F909ACD148B23BC00084E83 /* dactions.cc */; };
@@ -78,7 +77,6 @@
 		1F909C03148B455600084E83 /* mon-ench.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1F909B35148B244F00084E83 /* mon-ench.cc */; };
 		1F909C04148B455600084E83 /* mon-stealth.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1F909B39148B244F00084E83 /* mon-stealth.cc */; };
 		1F909C05148B455600084E83 /* syscalls.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1F909B21148B242D00084E83 /* syscalls.cc */; };
-		1F909C10148B459B00084E83 /* asg.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1F909AC3148B23BC00084E83 /* asg.cc */; };
 		1F909C16148B45EE00084E83 /* evoke.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1F909AD8148B23BC00084E83 /* evoke.cc */; };
 		1F909C17148B45EE00084E83 /* status.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1F909B1F148B242D00084E83 /* status.cc */; };
 		1F909C1F148B465300084E83 /* errors.cc in Sources */ = {isa = PBXBuildFile; fileRef = 1F909AD6148B23BC00084E83 /* errors.cc */; };
@@ -908,8 +906,7 @@
 		1F909AC0148B23BC00084E83 /* art-data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "art-data.h"; sourceTree = "<group>"; };
 		1F909AC1148B23BC00084E83 /* art-data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "art-data.txt"; sourceTree = "<group>"; };
 		1F909AC2148B23BC00084E83 /* art-enum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "art-enum.h"; sourceTree = "<group>"; };
-		1F909AC3148B23BC00084E83 /* asg.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = asg.cc; sourceTree = "<group>"; };
-		1F909AC4148B23BC00084E83 /* asg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asg.h; sourceTree = "<group>"; };
+		1F909AC4148B23BC00084E83 /* mersenne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mersenne.h; sourceTree = "<group>"; };
 		1F909AC5148B23BC00084E83 /* attack.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = attack.cc; sourceTree = "<group>"; };
 		1F909AC6148B23BC00084E83 /* attack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = attack.h; sourceTree = "<group>"; };
 		1F909AC7148B23BC00084E83 /* book-data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "book-data.h"; sourceTree = "<group>"; };
@@ -1780,8 +1777,7 @@
 				E5D63F6B10BD494300A99626 /* art-func.h */,
 				E5D63F6C10BD494300A99626 /* artefact.cc */,
 				E5D63F6D10BD494300A99626 /* artefact.h */,
-				1F909AC3148B23BC00084E83 /* asg.cc */,
-				1F909AC4148B23BC00084E83 /* asg.h */,
+				1F909AC4148B23BC00084E83 /* mersenne.h */,
 				1F909AC5148B23BC00084E83 /* attack.cc */,
 				1F909AC6148B23BC00084E83 /* attack.h */,
 				E5D63F6E10BD494300A99626 /* attitude-change.cc */,
@@ -2932,7 +2928,6 @@
 				7BDE844B116D24B300974D63 /* areas.cc in Sources */,
 				7BDE844C116D24B300974D63 /* arena.cc in Sources */,
 				7BDE844D116D24B300974D63 /* artefact.cc in Sources */,
-				1F909C10148B459B00084E83 /* asg.cc in Sources */,
 				1F909C38148B46E900084E83 /* attack.cc in Sources */,
 				7BDE844E116D24B300974D63 /* attitude-change.cc in Sources */,
 				7BDE844F116D24B300974D63 /* beam.cc in Sources */,
@@ -3177,7 +3172,6 @@
 				E5D640C310BD494500A99626 /* areas.cc in Sources */,
 				E5D640C410BD494500A99626 /* arena.cc in Sources */,
 				E5D640C510BD494500A99626 /* artefact.cc in Sources */,
-				1F909AE3148B23BC00084E83 /* asg.cc in Sources */,
 				1F909AE4148B23BC00084E83 /* attack.cc in Sources */,
 				E5D640C610BD494500A99626 /* attitude-change.cc in Sources */,
 				E5D640C710BD494500A99626 /* beam.cc in Sources */,

@@ -177,6 +177,8 @@ CLua dlua(false);      // Lua interpreter for the dungeon builder.
 #endif
 crawl_environment env; // Requires dlua.
 
+MersenneTwister mt_rng[2];
+
 player you;
 
 game_state crawl_state;
@@ -298,6 +300,10 @@ int main(int argc, char *argv[])
         _show_commandline_options_help();
         return 1;
     }
+
+    // initial rng initialization - it will be initialized again once we
+    // have read the config file
+    seed_rng();
 
     // Init monsters up front - needed to handle the mon_glyph option right.
     init_char_table(CSET_ASCII);

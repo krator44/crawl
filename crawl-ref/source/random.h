@@ -6,11 +6,16 @@
 #include <map>
 #include <vector>
 
-#include "asg.h" // AsgKISS::generator
+#include "mersenne.h"
 #include "hash.h"
+
+extern MersenneTwister mt_rng[2];
 
 void seed_rng();
 void seed_rng(uint32_t seed);
+
+uint32_t get_uint32();
+uint32_t get_uint32(int rng);
 
 bool coinflip();
 int div_rand_round(int num, int den);
@@ -99,13 +104,23 @@ dice_def calc_dice(int num_dice, int max_damage);
 template <typename T>
 void shuffle_array(T* arr, int n)
 {
-    shuffle(arr, arr+n, AsgKISS::generator(0));
+    while (n > 1) {
+        int i = random2(n);
+        n--;
+        T tmp = arr[i];
+        arr[i] = arr[n];
+        arr[n] = tmp;
+    }
+
 }
 
 template <typename T>
 void shuffle_array(T &vec)
 {
-    shuffle(begin(vec), end(vec), AsgKISS::generator(0));
+    if (!vec.empty()) {
+        shuffle_array(&vec[0], vec.size());
+    }
+
 }
 
 /**

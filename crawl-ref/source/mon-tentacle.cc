@@ -319,7 +319,7 @@ struct tentacle_attack_constraints
     void operator()(const position_node & node,
                     vector<position_node> & expansion)
     {
-        shuffle_array(connect_idx);
+        shuffle_array(connect_idx, ARRAYSZ(connect_idx));
 
 //        mprf("expanding %d %d, string dist %d", node.pos.x, node.pos.y, node.string_distance);
         for (int idx : connect_idx)
@@ -424,7 +424,7 @@ struct tentacle_connect_constraints
     void operator()(const position_node & node,
                     vector<position_node> & expansion)
     {
-        shuffle_array(connect_idx);
+        shuffle_array(connect_idx, ARRAYSZ(connect_idx));
 
         for (int idx : connect_idx)
         {
