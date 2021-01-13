@@ -20,7 +20,7 @@
 void seed_rng(uint32_t seed)
 {
     mt_rng[0].init(seed);
-    mt_rng[1].init(mt_rng[0].rand32());
+    mt_rng[1].charge(&mt_rng[0]);
 }
 
 void seed_rng()
@@ -36,7 +36,7 @@ void seed_rng()
     seed_key[2] += time(nullptr);
 
     mt_rng[0].init_array(seed_key, 624);
-    mt_rng[1].init(mt_rng[0].rand32());
+    mt_rng[1].charge(&mt_rng[0]);
 }
 
 uint32_t get_uint32() {

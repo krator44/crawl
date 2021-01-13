@@ -194,6 +194,14 @@ class MersenneTwister {
     }
     rt[0] = 0x80000000;
   }
+  
+  void charge(MersenneTwister *mt) {
+    u_int32_t seed[tx_n];
+    for(u_int32_t i=0; i < tx_n; i++) {
+      seed[i] = mt->rand32();
+    }
+    init_array(seed, tx_n);
+  }
 
   u_int32_t rand32() {
     u_int32_t xx;
